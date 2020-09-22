@@ -82,8 +82,9 @@ public class Ejemplo_Entrada {
 //        }while (ingresar);          
 //        Menu M = new Menu();
 //        M.setVisible(true);
+        vista.vizualizacion_actividades V = new vista.vizualizacion_actividades();
 
-            configuracion C = new configuracion();
+//            configuracion C = new configuracion();
             
     
     

@@ -21,11 +21,11 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
  */
 public class configuracion extends JFrame {
     
-    
-    private JLabel leyenda, A_inicial, nombre, duracion, autor, id, id_Antecesor;
-    private JButton anadir_A, dibujar, Reiniciar;
-    private JPanel header, body, footer;
-    private JTextField jtNombren, jtDuracion, jtidAntecesor, jtid_Actividad;
+    int id;
+    private JLabel jlLeyenda, jlNombre, jlDuracion, jlAutor, jlId, jlID_Antecesor;
+    private JButton jbRegistrar, jbLimpiar, jbCancelar;
+    private JPanel jpHeader, jpBody, jpFooter, jpInicio, jpBotones;
+    private JTextField jtFNombren, jtFDuracion, jtFidAntecesor, jtFid_Actividad;
     
     
           
@@ -33,44 +33,93 @@ public class configuracion extends JFrame {
         
         super ("Configuración de las actividades.");       
         
-        //inicializacion de los elementos
-        leyenda = new JLabel(); 
-        A_inicial = new JLabel(); 
-        nombre = new JLabel();
-        duracion = new JLabel();
-        autor = new JLabel();
-        id = new JLabel();
-        id_Antecesor = new JLabel();
+        //inicializacion de los label
+        id = 1;
+        jlLeyenda = new JLabel();         
+        jlNombre = new JLabel();
+        jlDuracion = new JLabel();
+        jlAutor = new JLabel();
+        jlId = new JLabel();
+        jlID_Antecesor = new JLabel();
+        
+        //Inicializacion de los JPanel
+        
+        jpHeader = new JPanel();
+        jpBody = new JPanel();
+        jpFooter = new JPanel();
+        jpInicio = new JPanel();        
+        jpBotones = new JPanel();
         
         
+        //Inicializacion de los JButton
+        
+        this.jbRegistrar = new JButton();
+        this.jbLimpiar = new JButton();
+        this.jbCancelar = new JButton();
+        
+        //Inicializacion de los JTextField
+        
+        this.jtFDuracion = new JTextField ();
+        jtFNombren = new JTextField ();
+        jtFidAntecesor = new JTextField ();
+        jtFid_Actividad = new JTextField ();
+                                                
+                
         
         //Configuración del texto de los label
-        this.leyenda.setText("A continuacion puedes añadir actividades especificando su nombre, duración y antecesor.");
-        this.leyenda.setFont(new Font("Tw Cen MT", Font.PLAIN, 13));
-        this.leyenda.setAlignmentX(CENTER_ALIGNMENT);
+        this.jlLeyenda.setText("A continuacion puedes añadir actividades especificando su nombre, duración y antecesor.");
+        this.jlLeyenda.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+        this.jlLeyenda.setAlignmentX(CENTER_ALIGNMENT);                
         
-        this.A_inicial.setText("Actividad Inicial: ");
-        this.A_inicial.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
+        this.jlNombre.setText("Nombre: ");
+        this.jlNombre.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
         
-        this.nombre.setText("Nombre: ");
-        this.nombre.setFont(new Font("Tw Cen MT", Font.PLAIN, 13));
+        this.jlDuracion.setText("Duración: ");
+        this.jlDuracion.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
         
-        this.duracion.setText("Duración: ");
-        this.duracion.setFont(new Font("Tw Cen MT", Font.PLAIN, 13));
+        this.jlId.setText("ID: ");
+        this.jtFid_Actividad.setText(id+"");
+    
+        this.jlId.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));        
         
-        this.id.setText("ID: ");
-        this.id.setFont(new Font("Tw Cen MT", Font.PLAIN, 13));
+        this.jlAutor.setText("Creado Por José Daniel Jiménez Medina - Universidad Distrital Francisco José de Caldas, 2020.");
+        this.jlAutor.setFont(new Font("Tw Cen MT", Font.PLAIN, 10));
+        this.jlAutor.setAlignmentX(CENTER_ALIGNMENT);
         
-        this.autor.setText("");
-        this.autor.setFont(new Font("Tw Cen MT", Font.PLAIN, 10));
+        this.jlID_Antecesor.setText("ID_Antecesor: ");
+        this.jlID_Antecesor.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
         
-        this.id_Antecesor.setText("Antecesor: ");
-        this.id_Antecesor.setFont(new Font("Tw Cen MT", Font.PLAIN, 13));
+        //Configuracion de los botones
+        
+        this.jbRegistrar.setText("Registrar Actividad");
+        this.jbRegistrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+        
+        this.jbLimpiar.setText("Limpiar Campos");
+        this.jbLimpiar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+        
+        this.jbCancelar.setText("Cancelar");
+        this.jbCancelar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));        
+        
+        
+        //Configuración de los JTextField
+        
+        jtFDuracion.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
+        jtFDuracion.setColumns(6);
+        
+        
+        
+        jtFNombren.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));         
+        jtFNombren.setColumns(8);
+        
+        jtFid_Actividad.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
+        jtFid_Actividad.setColumns(3);
+        jtFid_Actividad.setEditable(false);
+                
+        jtFidAntecesor.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
+        jtFidAntecesor.setColumns(3);
         
         this.initComponents();
-
-        
-        
+ 
         
     }
     
@@ -83,16 +132,48 @@ public class configuracion extends JFrame {
         //Creacion del Contenedor Principal del la ventana.
         Container Contenedor = this.getContentPane();
         
-        Contenedor.add(this.leyenda, BorderLayout.NORTH);
+        //Agregación de los elementos a su panel correspondiente
+        //Panel encabezado
+        this.jpHeader.add(this.jlLeyenda);
         
-        Contenedor.add(this.autor, BorderLayout.SOUTH);
+        //Panel cuerpo
+        this.jpBody.add(this.jpInicio);        
+        this.jpBody.add(jpBotones);
+        
+        
+        //Panel pie de página        
+        this.jpFooter.add(this.jlAutor);
+        
+        //Panel Cuerpo/Inicio        
+        jpInicio.add(jlNombre);
+        jpInicio.add(jtFNombren);
+        jpInicio.add(jlDuracion);
+        jpInicio.add(jtFDuracion);
+        jpInicio.add(jlId);
+        jpInicio.add(jtFid_Actividad);
+        jpInicio.add(jlID_Antecesor);
+        jpInicio.add(jtFidAntecesor);
+        
+        //Panel Cuerpo/ Actividades
+               
+        
+        //Panel Cuerpo/ Botono
+        
+        jpBotones.add(jbRegistrar);
+        jpBotones.add(jbLimpiar);
+        jpBotones.add(jbCancelar);
+                                        
+        
+        Contenedor.add(this.jpHeader, BorderLayout.NORTH);
+        Contenedor.add(this.jpBody, BorderLayout.CENTER);
+        Contenedor.add(this.jpFooter, BorderLayout.SOUTH);
         
         
         
         
         
         //Configuración del tamaño de la ventana
-        this.setSize(new java.awt.Dimension (580,196)); 
+        this.setSize(new java.awt.Dimension (580,170)); 
                 
         
         this.setVisible(true);
@@ -102,3 +183,4 @@ public class configuracion extends JFrame {
     
             
 }
+

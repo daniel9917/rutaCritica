@@ -39,13 +39,13 @@ public class Menu extends javax.swing.JFrame {
         panelTitulo = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
         panelTexto = new javax.swing.JPanel();
-        jTextArea1 = new javax.swing.JTextArea();
+        jtATexto = new javax.swing.JTextArea();
         labeltitulo_que = new javax.swing.JLabel();
         panelMedia = new javax.swing.JPanel();
         labelImage = new javax.swing.JLabel();
         panelInferior = new javax.swing.JPanel();
         labelAutor = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jBCrearRuta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -75,12 +75,12 @@ public class Menu extends javax.swing.JFrame {
 
         panelTexto.setPreferredSize(new java.awt.Dimension(210, 150));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(240, 240, 240));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("El método de la ruta crítica o \ndel camino crítico es un algoritmo \nutilizado para el cálculo de \ntiempos y plazos en la \nplanificación de proyectos.");
+        jtATexto.setEditable(false);
+        jtATexto.setBackground(new java.awt.Color(240, 240, 240));
+        jtATexto.setColumns(20);
+        jtATexto.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        jtATexto.setRows(5);
+        jtATexto.setText("El método de la ruta crítica o \ndel camino crítico es un algoritmo \nutilizado para el cálculo de \ntiempos y plazos en la \nplanificación de proyectos.");
 
         labeltitulo_que.setFont(new java.awt.Font("Tw Cen MT", 1, 20)); // NOI18N
         labeltitulo_que.setText("¿Qué es?");
@@ -92,7 +92,7 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(panelTextoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtATexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelTextoLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(labeltitulo_que)))
@@ -104,7 +104,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(labeltitulo_que)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtATexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -135,10 +135,10 @@ public class Menu extends javax.swing.JFrame {
         labelAutor.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         labelAutor.setText("Creado Por José Daniel Jiménez Medina - Universidad Distrital Francisco José de Caldas, 2020.");
 
-        jButton1.setText("Crear Ruta Critica");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBCrearRuta.setText("Crear Ruta Critica");
+        jBCrearRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBCrearRutaActionPerformed(evt);
             }
         });
 
@@ -152,14 +152,14 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(panelInferiorLayout.createSequentialGroup()
                 .addGap(141, 141, 141)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBCrearRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelInferiorLayout.setVerticalGroup(
             panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInferiorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                .addComponent(jBCrearRuta, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelAutor))
         );
@@ -169,15 +169,15 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBCrearRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearRutaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBCrearRutaActionPerformed
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton jBCrearRuta;
+    private javax.swing.JTextArea jtATexto;
     private javax.swing.JLabel labelAutor;
     private javax.swing.JLabel labelImage;
     private javax.swing.JLabel labelTitulo;

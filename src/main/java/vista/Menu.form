@@ -82,7 +82,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTextArea1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtATexto" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                           <Component id="labeltitulo_que" min="-2" max="-2" attributes="0"/>
@@ -98,14 +98,14 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labeltitulo_que" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jTextArea1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtATexto" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="21" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
+        <Component class="javax.swing.JTextArea" name="jtATexto">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -189,7 +189,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="149" max="-2" attributes="0"/>
+                  <Component id="jBCrearRuta" min="-2" pref="149" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -198,7 +198,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton1" pref="45" max="32767" attributes="0"/>
+                  <Component id="jBCrearRuta" pref="45" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="labelAutor" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -214,12 +214,12 @@
             <Property name="text" type="java.lang.String" value="Creado Por Jos&#xe9; Daniel Jim&#xe9;nez Medina - Universidad Distrital Francisco Jos&#xe9; de Caldas, 2020."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jBCrearRuta">
           <Properties>
             <Property name="text" type="java.lang.String" value="Crear Ruta Critica"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCrearRutaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
