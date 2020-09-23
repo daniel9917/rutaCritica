@@ -66,13 +66,14 @@ public class vizualizacion_actividades extends JFrame{
         
         
         //Configuracion JTextArea
+        JTaTexto.setRows(10);
+        JTaTexto.setColumns(5);   
         JTaTexto.setText("Aquí podrá visualizar las actividades registradas, "
                 + "listas para ser dibujadas en el diagrama de ruta critica.");
         JTaTexto.setEditable(false);        
         JTaTexto.setBackground(new java.awt.Color(240, 240, 240));
         JTaTexto.setFont(this.Fuente_plana_14);
-        JTaTexto.setRows(4);
-        JTaTexto.setColumns(10);                                
+                             
         
         //Configuración de los Botones
         
@@ -93,32 +94,44 @@ public class vizualizacion_actividades extends JFrame{
     }
     
     private void initComponents(){
+        
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        //Configuracion Izquierdo/Panel Texto
+        this.JPtexto.setSize(216, 85);
+        
+
+        //Configuracion Izquierdo/Panel Botones
+         this.JPBotones.setLayout(new BoxLayout (this.JPBotones, BoxLayout.Y_AXIS));
+         this.JPBotones.setSize(216, 156);
+         this.JPBotones.add(this.JBanadir);
+         this.JPBotones.add(this.JBdibujar);
+         this.JPBotones.add(this.JBReiniciar);
+         
+         
         //Configuracion del Panel del JFrame
-        this.getContentPane().add(JPDerecha, BorderLayout.EAST);
-        this.getContentPane().add(JPIzquierda, BorderLayout.WEST);
         
-        //Configuración Panel Izquierdo
-        JPIzquierda.setLayout(new BoxLayout(JPIzquierda, BoxLayout.Y_AXIS));
         
-        this.JPIzquierda.add(JPtexto);
-        this.JPIzquierda.add(JPBotones);
+        
+        
+        //Configuración Panel Izquierdo                        
+        
+        
+        
         
         //Configuracion Panel Derecho
         
-        this.JPDerecha.add(JPTabla);
+        
         
         //Configuracion Derecho/Tabla
-        this.JPTabla.add(jlprueba);
         
-        //Configuracion Izquierdo/Panel Texto
-        JPtexto.add(JTaTexto);
         
-        //Configuracion Izquierdo/Panel Botones
-        JPBotones.setLayout(new BoxLayout(JPBotones, BoxLayout.Y_AXIS));
+
         
-        JPBotones.add(JBanadir);
-        JPBotones.add(JBdibujar);
-        JPBotones.add(JBReiniciar);          
+        
+        
+        
+        
         
         this.setSize(new Dimension (677,328));
         

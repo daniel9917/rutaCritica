@@ -4,15 +4,19 @@
  */
 package vista;
 
+import com.sun.glass.events.WindowEvent;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 /**
@@ -28,13 +32,40 @@ public class configuracion extends JFrame {
     private JTextField jtFNombren, jtFDuracion, jtFidAntecesor, jtFid_Actividad;
     
     
+    private JFrame yo;
           
-    public configuracion(){
+    public configuracion(DefaultTableModel Modelo, checker c){
         
-        super ("Configuración de las actividades.");       
         
-        //inicializacion de los label
-        id = 1;
+        super ("Configuración de las actividades.");                               
+        yo = this;
+        this.id = c.n_actividades;
+        
+        this.setupElements();                                
+        this.initComponents();
+                //Acción del Botón Registrar
+        jbRegistrar.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                
+                String Nombre = jtFNombren.getText();
+                String Duracion = jtFDuracion.getText();
+                String id_ac = jtFid_Actividad.getText();
+                String id_ant =jtFidAntecesor.getText();
+                System.out.println("Nombre: "+Nombre+" Duracion: "+Duracion+" ID: "+id_ac+" IDA: "+id_ant);
+                Modelo.addRow(new Object[] {Nombre,Duracion,id_ac,id_ant});
+                c.registro();
+                yo.setVisible(false);
+                yo.dispose();  
+                
+            }    
+        });
+             
+    }
+    
+    
+    private void setupElements(){
+                //inicializacion de los label
+        
         jlLeyenda = new JLabel();         
         jlNombre = new JLabel();
         jlDuracion = new JLabel();
@@ -63,6 +94,9 @@ public class configuracion extends JFrame {
         jtFNombren = new JTextField ();
         jtFidAntecesor = new JTextField ();
         jtFid_Actividad = new JTextField ();
+        
+        if (this.id == 0)
+            this.jtFidAntecesor.setEditable(false);
                                                 
                 
         
@@ -117,10 +151,6 @@ public class configuracion extends JFrame {
                 
         jtFidAntecesor.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
         jtFidAntecesor.setColumns(3);
-        
-        this.initComponents();
- 
-        
     }
     
     public void initComponents(){
@@ -178,8 +208,10 @@ public class configuracion extends JFrame {
         
         this.setVisible(true);
         
+
     }
     
+
     
             
 }
