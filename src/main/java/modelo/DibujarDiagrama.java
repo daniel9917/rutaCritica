@@ -2,12 +2,12 @@
  * Project Developed By Jose Daniel Jiménez Medina
  * jdjimenezm@correo.udistrital.edu.co
  */
-package vista;
+package modelo;
 
 /**
  *
  * @author Jimenez Medina
  */
-public class Modelo_Actividades {
+public class DibujarDiagrama {
     
 }

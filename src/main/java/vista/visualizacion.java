@@ -6,6 +6,7 @@ package vista;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import modelo.Manager;
 
 /**
  *
@@ -17,12 +18,14 @@ public class visualizacion extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     DefaultTableModel Modelo;
+    Manager M;
     checker c;
     
     public visualizacion() {
         
         super ("Cuadro de Actividades");
         c = new checker();
+        M = new Manager();
         Modelo = new DefaultTableModel();
         Modelo.addColumn("Nombre");
         Modelo.addColumn("Duración");
@@ -30,6 +33,7 @@ public class visualizacion extends javax.swing.JFrame {
         Modelo.addColumn("ID_Antecesor");        
         initComponents();   
         this.jTable1.setModel(Modelo);
+        
     }
 
     /**
@@ -50,6 +54,7 @@ public class visualizacion extends javax.swing.JFrame {
         JPtabla = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(700, 380));
@@ -117,9 +122,8 @@ public class visualizacion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(JPbotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(JBreiniciar, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addGroup(JPbotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(JBdibuja, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                        .addComponent(JBanadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(JBdibuja, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(JBanadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
         JPbotonesLayout.setVerticalGroup(
@@ -167,6 +171,14 @@ public class visualizacion extends javax.swing.JFrame {
 
         getContentPane().add(JPtabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 11, 420, 350));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -179,7 +191,15 @@ public class visualizacion extends javax.swing.JFrame {
 
     private void JBdibujaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBdibujaActionPerformed
         // TODO add your handling code here:
+        M.crearActividades(this.jTable1);
+        
     }//GEN-LAST:event_JBdibujaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        System.out.println(this.jTable1.getModel().getRowCount()+" y col: "+this.jTable1.getModel().getColumnCount());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
 
@@ -191,6 +211,7 @@ public class visualizacion extends javax.swing.JFrame {
     private javax.swing.JPanel JPtabla;
     private javax.swing.JPanel JPtexto;
     private javax.swing.JTextArea JTAtexto;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

@@ -25,21 +25,29 @@ public class Actividad {
     private int termino_lejano;
     
     //Variables para el posicionamiento en la lista
-    private ArrayList <Actividad> predecesor;
-    private ArrayList <Actividad> sucesor;
+    private ArrayList <Actividad> predecesores;
+    private ArrayList <Actividad> sucesores;
     
     private String StringPredecesores;
+    private int npredecesores;
     
     //Constructor Vacío
     public Actividad(){
+        this.sucesores = new ArrayList();
+        this.predecesores = new ArrayList();
         
     }
     
-    public Actividad (String Nombre, int id, int Duracion, String Predecesores){
+    public Actividad (String Nombre, int Duracion, int id, String Predecesores){
         this.nombre = Nombre;
         this.id = id;
         this.duracion = Duracion;        
         this.StringPredecesores = Predecesores;
+        
+        this.sucesores = new ArrayList();
+        this.predecesores = new ArrayList();
+        
+        npredecesores = Predecesores.split("").length;
         
 //        Metodo para convertir a arreglo.
 //        String [] arreglo = Predecesores.split(",");                
@@ -47,9 +55,10 @@ public class Actividad {
         
     }
     
+    
     //Metodo para buscar actividad en lista de actividades predecesoras
     public Actividad buscar_predecesor(int id){
-        for (Actividad i : this.predecesor){
+        for (Actividad i : this.predecesores){
             if (i.id == id){
                 return i;
             }
@@ -60,7 +69,7 @@ public class Actividad {
     
     //Metodo para buscar actividad en lista de actividades sucesoras
     public Actividad buscar_sucesor(int id){
-        for (Actividad i : this.sucesor){
+        for (Actividad i : this.sucesores){
             if (i.id == id){
                 return i;
             }
@@ -71,11 +80,11 @@ public class Actividad {
     
     
     public void anadirSucesor(Actividad sucesor){
-        this.sucesor.add(sucesor);
+        this.sucesores.add(sucesor);
     }
     
     public void anadirPredecesor(Actividad predecesor){                
-        this.predecesor.add(predecesor);                
+        this.predecesores.add(predecesor);                
     }
 
     public int getId() {
@@ -142,12 +151,12 @@ public class Actividad {
         this.termino_lejano = termino_lejano;
     }
 
-    public ArrayList getPredecesor() {
-        return predecesor;
+    public ArrayList<Actividad> getPredecesor() {
+        return predecesores;
     }
     
-    public ArrayList getSucesor() {
-        return sucesor;
+    public ArrayList<Actividad> getSucesor() {
+        return sucesores;
     }
 
     public String getStringPredecesores() {
@@ -156,7 +165,35 @@ public class Actividad {
 
     public void setStringPredecesores(String StringPredecesores) {
         this.StringPredecesores = StringPredecesores;
+        npredecesores = this.StringPredecesores.split("").length;
+        
     }
+
+    public ArrayList<Actividad> getPredecesores() {
+        return predecesores;
+    }
+
+    public void setPredecesores(ArrayList<Actividad> predecesores) {
+        this.predecesores = predecesores;
+    }
+
+    public ArrayList<Actividad> getSucesores() {
+        return sucesores;
+    }
+
+    public void setSucesores(ArrayList<Actividad> sucesores) {
+        this.sucesores = sucesores;
+    }
+
+    public int getNpredecesores() {
+        return npredecesores;
+    }
+
+    public void setNpredecesores(int npredecesores) {
+        this.npredecesores = npredecesores;
+    }
+    
+    
     
     
     

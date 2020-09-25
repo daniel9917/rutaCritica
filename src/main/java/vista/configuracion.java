@@ -11,7 +11,10 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -30,11 +33,20 @@ public class configuracion extends JFrame {
     private JButton jbRegistrar, jbLimpiar, jbCancelar;
     private JPanel jpHeader, jpBody, jpFooter, jpInicio, jpBotones;
     private JTextField jtFNombren, jtFDuracion, jtFidAntecesor, jtFid_Actividad;
+    private JCheckBox jcbA_Final;
     
     
     private JFrame yo;
           
-    public configuracion(DefaultTableModel Modelo, checker c){
+    /*
+    *Constructor de la ventana configuración
+    *Parámetro Modelo: Se utiliza para añadir nuevas filas a la tabla.
+    *Parámetro Checker: Se utiliza para hacer del ID de la actividad autoincrementable.
+    *
+    *En este método se inicializan los elementos de la ventana, y se añaden las acciones 
+    *A los elementos de interacción con el usuario
+    */
+    public configuracion(DefaultTableModel Modelo, checker c){        
         
         
         super ("Configuración de las actividades.");                               
@@ -43,7 +55,8 @@ public class configuracion extends JFrame {
         
         this.setupElements();                                
         this.initComponents();
-                //Acción del Botón Registrar
+        
+        //Acción del Botón Registrar
         jbRegistrar.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 
@@ -59,12 +72,44 @@ public class configuracion extends JFrame {
                 
             }    
         });
+        
+        //Acción del Botón Cancelar        
+        jbCancelar.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                yo.setVisible(false);
+                yo.dispose();  
+            }
+        });
              
+    
+                
+        //Método para verificar si el java check box está seleccionado
+        jcbA_Final.addItemListener(new ItemListener() {   
+        public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange() == ItemEvent.SELECTED){//checkbox has been selected
+                    jtFid_Actividad.setText("999");
+                    jtFid_Actividad.setEditable(false);                                       
+                } else {//checkbox has been deselected
+                    jtFid_Actividad.setText("");
+                    jtFid_Actividad.setEditable(true);
+                    
+                    if (id == 0){
+                        jtFidAntecesor.setEditable(false);
+                        jtFid_Actividad.setText("0");
+                        jtFid_Actividad.setEditable(false);
+                    }
+                };
+            }
+        });                                             
     }
     
+    /*Método para configurar los elementos de la venta, se configura
+    *la fuente, el tamañp y el texto de los elementos
+    *
+    */
     
     private void setupElements(){
-                //inicializacion de los label
+        //inicializacion de los label
         
         jlLeyenda = new JLabel();         
         jlNombre = new JLabel();
@@ -95,6 +140,11 @@ public class configuracion extends JFrame {
         jtFidAntecesor = new JTextField ();
         jtFid_Actividad = new JTextField ();
         
+        //Inicializacion Java Check Box
+        
+        jcbA_Final = new JCheckBox();
+        
+        //Si es la primera actividad el ID por defecto será 0 y no tendrá antecesor
         if (this.id == 0)
             this.jtFidAntecesor.setEditable(false);
                                                 
@@ -151,8 +201,18 @@ public class configuracion extends JFrame {
                 
         jtFidAntecesor.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
         jtFidAntecesor.setColumns(3);
+        
+        jcbA_Final.setFont(new Font("Tw Cen MT", Font.PLAIN, 10));
+        jcbA_Final.setText("¿Actividad Final?");
+        
     }
     
+    
+    /*
+    *Aquí se añaden los componentes de la ventana a los respectivos paneles
+    *y también se establecen algunas propiedades de la ventana como el tamaño
+    *y se le da funcionalidad al boton x
+    */
     public void initComponents(){
         
         //Default Close Operation 
@@ -183,6 +243,7 @@ public class configuracion extends JFrame {
         jpInicio.add(jtFid_Actividad);
         jpInicio.add(jlID_Antecesor);
         jpInicio.add(jtFidAntecesor);
+        jpInicio.add(jcbA_Final);
         
         //Panel Cuerpo/ Actividades
                
@@ -196,10 +257,7 @@ public class configuracion extends JFrame {
         
         Contenedor.add(this.jpHeader, BorderLayout.NORTH);
         Contenedor.add(this.jpBody, BorderLayout.CENTER);
-        Contenedor.add(this.jpFooter, BorderLayout.SOUTH);
-        
-        
-        
+        Contenedor.add(this.jpFooter, BorderLayout.SOUTH);                        
         
         
         //Configuración del tamaño de la ventana
